@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1D15ED7E-8D45-4979-B5A3-14576AF2444D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DashProject.Web</RootNamespace>
+    <AssemblyName>DashProject.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataSourceView\AACTranscoderConfigDataSourceView.cs" />
+    <Compile Include="DataSourceView\AACTranscoderConfigDataSourceViewBase.generatedCore.cs" />
+    <Compile Include="DataSourceView\ApplicationConfigurationDataSourceView.cs" />
+    <Compile Include="DataSourceView\ApplicationConfigurationDataSourceViewBase.generatedCore.cs" />
+    <Compile Include="DataSourceView\AspectRatioDataSourceView.cs" />
+    <Compile Include="DataSourceView\AspectRatioDataSourceViewBase.generatedCore.cs" />
+    <Compile Include="DataSourceView\BroadcastTypeDataSourceView.cs" />
+    <Compile Include="DataSourceView\BroadcastTypeDataSourceViewBase.generatedCore.cs" />
+    <Compile Include="DataSourceView\CodecMediaTypeDataSourceView.cs" />
+    <Compile Include="DataSourceView\CodecMediaTypeDataSourceViewBase.generatedCore.cs" />
+    <Compile Include="DataSourceView\CodecToEncoderDataSourceView.cs" />
+    <Compile Include="DataSourceView\CodecToEncoderDataSourceViewBase.generatedCore.cs" />
+    <Compile Include="DataSourceView\CodecTypeDataSourceView.cs" />
+    <Compile Include="DataSourceView\CodecTypeDataSourceViewBase.generatedCore.cs" />
+    <Compile Include="DataSourceView\ContainerTypeDataSourceView.cs" />
+    <Compile Include="DataSourceView\ContainerTypeDataSourceViewBase.generatedCore.cs" />
+    <Compile Include="DataSourceView\DashInitSegmentDataSourceView.cs" />
+    <Compile Include="DataSourceView\DashInitSegmentDataSourceViewBase.generatedCore.cs" />
+    <Compile Include="DataSourceView\DashMediaDataSourceView.cs" />
+    <Compile Include="DataSourceView\DashMediaDataSourceViewBase.generatedCore.cs" />
+    <Compile Include="DataSourceView\DashMediaSegmentDataSourceView.cs" />
+    <Compile Include="DataSourceView\DashMediaSegmentDataSourceViewBase.generatedCore.cs" />
+    <Compile Include="DataSourceView\DashTypeDataSourceView.cs" />
+    <Compile Include="DataSourceView\DashTypeDataSourceViewBase.generatedCore.cs" />
+    <Compile Include="DataSourceView\DecoderTypeDataSourceView.cs" />
+    <Compile Include="DataSourceView\DecoderTypeDataSourceViewBase.generatedCore.cs" />
+    <Compile Include="DataSourceView\EncoderTypeDataSourceView.cs" />
+    <Compile Include="DataSourceView\EncoderTypeDataSourceViewBase.generatedCore.cs" />
+    <Compile Include="DataSourceView\LanguageDataSourceView.cs" />
+    <Compile Include="DataSourceView\LanguageDataSourceViewBase.generatedCore.cs" />
+    <Compile Include="DataSourceView\LIBx264EncoderConfigDataSourceView.cs" />
+    <Compile Include="DataSourceView\LIBx264EncoderConfigDataSourceViewBase.generatedCore.cs" />
+    <Compile Include="DataSourceView\LIBx264EncoderPresetTypeDataSourceView.cs" />
+    <Compile Include="DataSourceView\LIBx264EncoderPresetTypeDataSourceViewBase.generatedCore.cs" />
+    <Compile Include="DataSourceView\MediaDataSourceView.cs" />
+    <Compile Include="DataSourceView\MediaDataSourceViewBase.generatedCore.cs" />
+    <Compile Include="DataSourceView\RawMediaDataSourceView.cs" />
+    <Compile Include="DataSourceView\RawMediaDataSourceViewBase.generatedCore.cs" />
+    <Compile Include="DataSourceView\RawMediaSourceTypeDataSourceView.cs" />
+    <Compile Include="DataSourceView\RawMediaSourceTypeDataSourceViewBase.generatedCore.cs" />
+    <Compile Include="DataSourceView\RawSegmentStreamDataSourceView.cs" />
+    <Compile Include="DataSourceView\RawSegmentStreamDataSourceViewBase.generatedCore.cs" />
+    <Compile Include="DataSourceView\ScaleVideoFilterDataSourceView.cs" />
+    <Compile Include="DataSourceView\ScaleVideoFilterDataSourceViewBase.generatedCore.cs" />
+    <Compile Include="DataSourceView\SegmenterConfigDataSourceView.cs" />
+    <Compile Include="DataSourceView\SegmenterConfigDataSourceViewBase.generatedCore.cs" />
+    <Compile Include="DataSourceView\StreamDataSourceView.cs" />
+    <Compile Include="DataSourceView\StreamDataSourceViewBase.generatedCore.cs" />
+    <Compile Include="DataSourceView\StreamTypeDataSourceView.cs" />
+    <Compile Include="DataSourceView\StreamTypeDataSourceViewBase.generatedCore.cs" />
+    <Compile Include="DataSourceView\VideoSizeDataSourceView.cs" />
+    <Compile Include="DataSourceView\VideoSizeDataSourceViewBase.generatedCore.cs" />
+    <Compile Include="DataSourceView\X264ProfileDataSourceView.cs" />
+    <Compile Include="DataSourceView\X264ProfileDataSourceViewBase.generatedCore.cs" />
+    <Compile Include="DataSourceView\X264ProfileLevelDataSourceView.cs" />
+    <Compile Include="DataSourceView\X264ProfileLevelDataSourceViewBase.generatedCore.cs" />
+    <Compile Include="DataSource\AACTranscoderConfigDataSource.cs" />
+    <Compile Include="DataSource\AACTranscoderConfigDataSourceBase.generatedCore.cs" />
+    <Compile Include="DataSource\ApplicationConfigurationDataSource.cs" />
+    <Compile Include="DataSource\ApplicationConfigurationDataSourceBase.generatedCore.cs" />
+    <Compile Include="DataSource\AspectRatioDataSource.cs" />
+    <Compile Include="DataSource\AspectRatioDataSourceBase.generatedCore.cs" />
+    <Compile Include="DataSource\BroadcastTypeDataSource.cs" />
+    <Compile Include="DataSource\BroadcastTypeDataSourceBase.generatedCore.cs" />
+    <Compile Include="DataSource\CodecMediaTypeDataSource.cs" />
+    <Compile Include="DataSource\CodecMediaTypeDataSourceBase.generatedCore.cs" />
+    <Compile Include="DataSource\CodecToEncoderDataSource.cs" />
+    <Compile Include="DataSource\CodecToEncoderDataSourceBase.generatedCore.cs" />
+    <Compile Include="DataSource\CodecTypeDataSource.cs" />
+    <Compile Include="DataSource\CodecTypeDataSourceBase.generatedCore.cs" />
+    <Compile Include="DataSource\ContainerTypeDataSource.cs" />
+    <Compile Include="DataSource\ContainerTypeDataSourceBase.generatedCore.cs" />
+    <Compile Include="DataSource\DashInitSegmentDataSource.cs" />
+    <Compile Include="DataSource\DashInitSegmentDataSourceBase.generatedCore.cs" />
+    <Compile Include="DataSource\DashMediaDataSource.cs" />
+    <Compile Include="DataSource\DashMediaDataSourceBase.generatedCore.cs" />
+    <Compile Include="DataSource\DashMediaSegmentDataSource.cs" />
+    <Compile Include="DataSource\DashMediaSegmentDataSourceBase.generatedCore.cs" />
+    <Compile Include="DataSource\DashTypeDataSource.cs" />
+    <Compile Include="DataSource\DashTypeDataSourceBase.generatedCore.cs" />
+    <Compile Include="DataSource\DecoderTypeDataSource.cs" />
+    <Compile Include="DataSource\DecoderTypeDataSourceBase.generatedCore.cs" />
+    <Compile Include="DataSource\EncoderTypeDataSource.cs" />
+    <Compile Include="DataSource\EncoderTypeDataSourceBase.generatedCore.cs" />
+    <Compile Include="DataSource\LanguageDataSource.cs" />
+    <Compile Include="DataSource\LanguageDataSourceBase.generatedCore.cs" />
+    <Compile Include="DataSource\LIBx264EncoderConfigDataSource.cs" />
+    <Compile Include="DataSource\LIBx264EncoderConfigDataSourceBase.generatedCore.cs" />
+    <Compile Include="DataSource\LIBx264EncoderPresetTypeDataSource.cs" />
+    <Compile Include="DataSource\LIBx264EncoderPresetTypeDataSourceBase.generatedCore.cs" />
+    <Compile Include="DataSource\MediaDataSource.cs" />
+    <Compile Include="DataSource\MediaDataSourceBase.generatedCore.cs" />
+    <Compile Include="DataSource\RawMediaDataSource.cs" />
+    <Compile Include="DataSource\RawMediaDataSourceBase.generatedCore.cs" />
+    <Compile Include="DataSource\RawMediaSourceTypeDataSource.cs" />
+    <Compile Include="DataSource\RawMediaSourceTypeDataSourceBase.generatedCore.cs" />
+    <Compile Include="DataSource\RawSegmentStreamDataSource.cs" />
+    <Compile Include="DataSource\RawSegmentStreamDataSourceBase.generatedCore.cs" />
+    <Compile Include="DataSource\ScaleVideoFilterDataSource.cs" />
+    <Compile Include="DataSource\ScaleVideoFilterDataSourceBase.generatedCore.cs" />
+    <Compile Include="DataSource\SegmenterConfigDataSource.cs" />
+    <Compile Include="DataSource\SegmenterConfigDataSourceBase.generatedCore.cs" />
+    <Compile Include="DataSource\StreamDataSource.cs" />
+    <Compile Include="DataSource\StreamDataSourceBase.generatedCore.cs" />
+    <Compile Include="DataSource\StreamTypeDataSource.cs" />
+    <Compile Include="DataSource\StreamTypeDataSourceBase.generatedCore.cs" />
+    <Compile Include="DataSource\VideoSizeDataSource.cs" />
+    <Compile Include="DataSource\VideoSizeDataSourceBase.generatedCore.cs" />
+    <Compile Include="DataSource\X264ProfileDataSource.cs" />
+    <Compile Include="DataSource\X264ProfileDataSourceBase.generatedCore.cs" />
+    <Compile Include="DataSource\X264ProfileLevelDataSource.cs" />
+    <Compile Include="DataSource\X264ProfileLevelDataSourceBase.generatedCore.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DashProject.Entity\DashProject.Entity.csproj">
+      <Project>{E6956B73-1418-406E-9AA3-093CD203922F}</Project>
+      <Name>DashProject.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DashProject.Repository\DashProject.Repository.csproj">
+      <Project>{F7A5AD90-12D4-48CC-BAFA-FED6880BBC39}</Project>
+      <Name>DashProject.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Manitou.Data.Item.Base\Manitou.Data.Item.Base.csproj">
+      <Project>{059479AC-9F62-4C26-ABE8-D36B889E9837}</Project>
+      <Name>Manitou.Data.Item.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Manitou.Data.Provider\Manitou.Data.Provider.csproj">
+      <Project>{60DE2AAE-C796-4CF8-9578-AC1FCBAA14BA}</Project>
+      <Name>Manitou.Data.Provider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Manitou.Entity.Base\Manitou.Entity.Base.csproj">
+      <Project>{6AA36A66-C3C9-437A-8115-B0EE672E098D}</Project>
+      <Name>Manitou.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Winnetou.WebControls\Winnetou.WebControls.csproj">
+      <Project>{A3BC387C-807A-4872-9505-8E59F80D99C0}</Project>
+      <Name>Winnetou.WebControls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

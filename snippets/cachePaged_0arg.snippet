@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Cache Manitou paged object, for API classes. 0 arguments.</Title>
+            <Shortcut>Cache Manitou</Shortcut>
+            <Description>Object caching snippet</Description>
+            <Author>GrafKrolik</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+                <SnippetType>SurroundsWith</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>ClassPrefix</ID>
+                    <Default></Default>
+                </Literal>
+                <Literal>
+                    <ID>ObjectName</ID>
+                    <Default></Default>
+                </Literal>
+                <Literal>
+                    <ID>ProcedureName</ID>
+                    <Default></Default>
+                </Literal>
+                <Literal>
+                    <ID>CacheDuration</ID>
+                    <Default></Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+<![CDATA[
+    #region $ObjectName$_$ProcedureName$
+    private const string $ObjectName$_$ProcedureName$_CacheFormat = "$ClassPrefix$API.$ObjectName$_$ProcedureName$.{0}.{1}";
+
+    private static List<$ObjectName$> $ObjectName$_$ProcedureName$(int pageIndex, byte pageSize, out int count)
+    {
+        int? totalCount = null;
+        List<$ObjectName$> list = Factory.$ObjectName$.$ProcedureName$(pageIndex, pageSize, ref totalCount);
+        count = totalCount ?? 0;
+        return list;
+    }
+
+    public static List<$ObjectName$> $ObjectName$_$ProcedureName$(int pageIndex, byte pageSize, out int count, bool applyCaching)
+    {
+        if (!applyCaching)
+            return $ObjectName$_$ProcedureName$(pageIndex, pageSize, out count);
+
+        string cacheKey = string.Format($ObjectName$_$ProcedureName$_CacheFormat, pageIndex, pageSize);
+        CachedDataPage<List<$ObjectName$>> cp = CacheUtils.CacheGet<CachedDataPage<List<$ObjectName$>>>(cacheKey);
+        if (cp == null)
+        {
+            List<$ObjectName$> obj = $ObjectName$_$ProcedureName$(pageIndex, pageSize, out count);
+            cp = new CachedDataPage<List<$ObjectName$>>(obj, count);
+            CacheUtils.CacheSet(cacheKey, cp, $CacheDuration$);
+        }
+        count = cp.TotalCount;
+        return cp.PageData;
+    }
+
+    public static void $ObjectName$_$ProcedureName$_RemoveCache(int pageIndex, byte pageSize)
+    {
+        CacheUtils.CacheRemove(string.Format($ObjectName$_$ProcedureName$_CacheFormat, pageIndex, pageSize));
+    }
+    #endregion
+]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

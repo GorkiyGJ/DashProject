@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Cache Manitou object from list, for API classes. 1 arguments.</Title>
+            <Shortcut>Cache Manitou</Shortcut>
+            <Description>Object from list caching snippet</Description>
+            <Author>GrafKrolik</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+                <SnippetType>SurroundsWith</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>ClassPrefix</ID>
+                    <Default></Default>
+                </Literal>
+                <Literal>
+                    <ID>ObjectName</ID>
+                    <Default></Default>
+                </Literal>
+                <Literal>
+                    <ID>ProcedureName</ID>
+                    <Default></Default>
+                </Literal>
+                <Literal>
+                    <ID>CacheDuration</ID>
+                    <Default></Default>
+                </Literal>
+                <Literal>
+                    <ID>Param1Type</ID>
+                    <Default></Default>
+                </Literal>
+                <Literal>
+                    <ID>Param1Name</ID>
+                    <Default></Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+<![CDATA[
+    #region $ObjectName$_$ProcedureName$
+    private const string $ObjectName$_$ProcedureName$_CacheFormat = "$ClassPrefix$API.$ObjectName$_$ProcedureName$.{0}";
+
+    private static $ObjectName$ $ObjectName$_$ProcedureName$($Param1Type$ $Param1Name$)
+    {
+        List<$ObjectName$> list = Factory.$ObjectName$.$ProcedureName$($Param1Name$);
+        if (list != null && list.Count > 0)
+            return list[0];
+        return null;
+    }
+
+    public static $ObjectName$ $ObjectName$_$ProcedureName$($Param1Type$ $Param1Name$, bool applyCaching)
+    {
+        if (!applyCaching)
+            return $ObjectName$_$ProcedureName$($Param1Name$);
+
+        string cacheKey = string.Format($ObjectName$_$ProcedureName$_CacheFormat, $Param1Name$);
+		bool isExists;
+        $ObjectName$ obj = CacheUtils.CacheGet<$ObjectName$>(cacheKey, out isExists);
+        if (!isExists)
+        {
+            obj = $ObjectName$_$ProcedureName$($Param1Name$);
+            CacheUtils.CacheSet(cacheKey, obj, $CacheDuration$);
+        }
+        return obj;
+    }
+
+    public static void $ObjectName$_$ProcedureName$_RemoveCache($Param1Type$ $Param1Name$)
+    {
+        CacheUtils.CacheRemove(string.Format($ObjectName$_$ProcedureName$_CacheFormat, $Param1Name$));
+    }
+    #endregion
+]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{58180B15-56B4-4448-8A4A-3CF7E20753A5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DashProject.Data.MsSql</RootNamespace>
+    <AssemblyName>DashProject.Data.MsSql</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helper\DbCommandUtils.cs" />
+    <Compile Include="Helper\DbConnectionUtils.cs" />
+    <Compile Include="Helper\DbExecuteUtils.cs" />
+    <Compile Include="Helper\DbParameterUtils.cs" />
+    <Compile Include="Mapper\AACEncoderConfigMapper.cs" />
+    <Compile Include="Mapper\AACEncoderConfigMapper.generatedCore.cs" />
+    <Compile Include="Mapper\ApplicationConfigurationMapper.cs" />
+    <Compile Include="Mapper\ApplicationConfigurationMapper.generatedCore.cs" />
+    <Compile Include="Mapper\AspectRatioMapper.cs" />
+    <Compile Include="Mapper\AspectRatioMapper.generatedCore.cs" />
+    <Compile Include="Mapper\AudioStreamMapper.cs" />
+    <Compile Include="Mapper\AudioStreamMapper.generatedCore.cs" />
+    <Compile Include="Mapper\BroadcastTypeMapper.cs" />
+    <Compile Include="Mapper\BroadcastTypeMapper.generatedCore.cs" />
+    <Compile Include="Mapper\CodecMapper.cs" />
+    <Compile Include="Mapper\CodecMapper.generatedCore.cs" />
+    <Compile Include="Mapper\CodecToEncoderMapper.cs" />
+    <Compile Include="Mapper\CodecToEncoderMapper.generatedCore.cs" />
+    <Compile Include="Mapper\CodecTypeMapper.cs" />
+    <Compile Include="Mapper\CodecTypeMapper.generatedCore.cs" />
+    <Compile Include="Mapper\ContainerFormatMapper.cs" />
+    <Compile Include="Mapper\ContainerFormatMapper.generatedCore.cs" />
+    <Compile Include="Mapper\Custom\iDashMediaInfoMapper.cs" />
+    <Compile Include="Mapper\Custom\iDashMediaInfoMapper.generatedCore.cs" />
+    <Compile Include="Mapper\Custom\iLIBx264TranscoderConfigMapper.cs" />
+    <Compile Include="Mapper\Custom\iLIBx264TranscoderConfigMapper.generatedCore.cs" />
+    <Compile Include="Mapper\Custom\iMediaInfoMapper.cs" />
+    <Compile Include="Mapper\Custom\iMediaInfoMapper.generatedCore.cs" />
+    <Compile Include="Mapper\Custom\iSegmenterConfigMapper.cs" />
+    <Compile Include="Mapper\Custom\iSegmenterConfigMapper.generatedCore.cs" />
+    <Compile Include="Mapper\Custom\iStreamInfoMapper.cs" />
+    <Compile Include="Mapper\Custom\iStreamInfoMapper.generatedCore.cs" />
+    <Compile Include="Mapper\DashContainerFormatMapper.cs" />
+    <Compile Include="Mapper\DashContainerFormatMapper.generatedCore.cs" />
+    <Compile Include="Mapper\DashInitSegmentMapper.cs" />
+    <Compile Include="Mapper\DashInitSegmentMapper.generatedCore.cs" />
+    <Compile Include="Mapper\DashMediaMapper.cs" />
+    <Compile Include="Mapper\DashMediaMapper.generatedCore.cs" />
+    <Compile Include="Mapper\DashMediaSegmentMapper.cs" />
+    <Compile Include="Mapper\DashMediaSegmentMapper.generatedCore.cs" />
+    <Compile Include="Mapper\DashTypeMapper.cs" />
+    <Compile Include="Mapper\DashTypeMapper.generatedCore.cs" />
+    <Compile Include="Mapper\EncoderMapper.cs" />
+    <Compile Include="Mapper\EncoderMapper.generatedCore.cs" />
+    <Compile Include="Mapper\EncoderTypeMapper.cs" />
+    <Compile Include="Mapper\EncoderTypeMapper.generatedCore.cs" />
+    <Compile Include="Mapper\LanguageMapper.cs" />
+    <Compile Include="Mapper\LanguageMapper.generatedCore.cs" />
+    <Compile Include="Mapper\LIBx264EncoderConfigMapper.cs" />
+    <Compile Include="Mapper\LIBx264EncoderConfigMapper.generatedCore.cs" />
+    <Compile Include="Mapper\LIBx264EncoderPresetTypeMapper.cs" />
+    <Compile Include="Mapper\LIBx264EncoderPresetTypeMapper.generatedCore.cs" />
+    <Compile Include="Mapper\MediaMapper.cs" />
+    <Compile Include="Mapper\MediaMapper.generatedCore.cs" />
+    <Compile Include="Mapper\MediaOriginTypeMapper.cs" />
+    <Compile Include="Mapper\MediaOriginTypeMapper.generatedCore.cs" />
+    <Compile Include="Mapper\RawMediaMapper.cs" />
+    <Compile Include="Mapper\RawMediaMapper.generatedCore.cs" />
+    <Compile Include="Mapper\RawSegmentMapper.cs" />
+    <Compile Include="Mapper\RawSegmentMapper.generatedCore.cs" />
+    <Compile Include="Mapper\RawSegmentStreamMapper.cs" />
+    <Compile Include="Mapper\RawSegmentStreamMapper.generatedCore.cs" />
+    <Compile Include="Mapper\SegmenterConfigMapper.cs" />
+    <Compile Include="Mapper\SegmenterConfigMapper.generatedCore.cs" />
+    <Compile Include="Mapper\StreamMapper.cs" />
+    <Compile Include="Mapper\StreamMapper.generatedCore.cs" />
+    <Compile Include="Mapper\StreamTypeMapper.cs" />
+    <Compile Include="Mapper\StreamTypeMapper.generatedCore.cs" />
+    <Compile Include="Mapper\TranscoderConfigMapper.cs" />
+    <Compile Include="Mapper\TranscoderConfigMapper.generatedCore.cs" />
+    <Compile Include="Mapper\VideoSizeMapper.cs" />
+    <Compile Include="Mapper\VideoSizeMapper.generatedCore.cs" />
+    <Compile Include="Mapper\VideoStreamMapper.cs" />
+    <Compile Include="Mapper\VideoStreamMapper.generatedCore.cs" />
+    <Compile Include="MsSqlManitouProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DashProject.Data.Item\DashProject.Data.Item.csproj">
+      <Project>{687789AB-84F0-4289-BDB3-1B498646D1FD}</Project>
+      <Name>DashProject.Data.Item</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DashProject.Data\DashProject.Data.csproj">
+      <Project>{862299EF-C4B1-492D-9193-8C08B669239F}</Project>
+      <Name>DashProject.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Manitou.Data.Item.Base\Manitou.Data.Item.Base.csproj">
+      <Project>{059479AC-9F62-4C26-ABE8-D36B889E9837}</Project>
+      <Name>Manitou.Data.Item.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Manitou.Data.Provider\Manitou.Data.Provider.csproj">
+      <Project>{60DE2AAE-C796-4CF8-9578-AC1FCBAA14BA}</Project>
+      <Name>Manitou.Data.Provider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Manitou.Helper\Manitou.Helper.csproj">
+      <Project>{35273C6B-2911-4999-8134-76ADFEAB0351}</Project>
+      <Name>Manitou.Helper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

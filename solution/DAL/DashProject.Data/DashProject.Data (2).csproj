@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{862299EF-C4B1-492D-9193-8C08B669239F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DashProject.Data</RootNamespace>
+    <AssemblyName>DashProject.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="EnvDTE80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataProvider.cs" />
+    <Compile Include="ManitouProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\AACEncoderConfigProvider.cs" />
+    <Compile Include="Providers\AACEncoderConfigProvider.generatedCore.cs" />
+    <Compile Include="Providers\ApplicationConfigurationProvider.cs" />
+    <Compile Include="Providers\ApplicationConfigurationProvider.generatedCore.cs" />
+    <Compile Include="Providers\AspectRatioProvider.cs" />
+    <Compile Include="Providers\AspectRatioProvider.generatedCore.cs" />
+    <Compile Include="Providers\AudioStreamProvider.cs" />
+    <Compile Include="Providers\AudioStreamProvider.generatedCore.cs" />
+    <Compile Include="Providers\BroadcastTypeProvider.cs" />
+    <Compile Include="Providers\BroadcastTypeProvider.generatedCore.cs" />
+    <Compile Include="Providers\CodecProvider.cs" />
+    <Compile Include="Providers\CodecProvider.generatedCore.cs" />
+    <Compile Include="Providers\CodecToEncoderProvider.cs" />
+    <Compile Include="Providers\CodecToEncoderProvider.generatedCore.cs" />
+    <Compile Include="Providers\CodecTypeProvider.cs" />
+    <Compile Include="Providers\CodecTypeProvider.generatedCore.cs" />
+    <Compile Include="Providers\ContainerFormatProvider.cs" />
+    <Compile Include="Providers\ContainerFormatProvider.generatedCore.cs" />
+    <Compile Include="Providers\Custom\iDashMediaInfoProvider.cs" />
+    <Compile Include="Providers\Custom\iDashMediaInfoProvider.generatedCore.cs" />
+    <Compile Include="Providers\Custom\iLIBx264TranscoderConfigProvider.cs" />
+    <Compile Include="Providers\Custom\iLIBx264TranscoderConfigProvider.generatedCore.cs" />
+    <Compile Include="Providers\Custom\iMediaInfoProvider.cs" />
+    <Compile Include="Providers\Custom\iMediaInfoProvider.generatedCore.cs" />
+    <Compile Include="Providers\Custom\iSegmenterConfigProvider.cs" />
+    <Compile Include="Providers\Custom\iSegmenterConfigProvider.generatedCore.cs" />
+    <Compile Include="Providers\Custom\iStreamInfoProvider.cs" />
+    <Compile Include="Providers\Custom\iStreamInfoProvider.generatedCore.cs" />
+    <Compile Include="Providers\DashContainerFormatProvider.cs" />
+    <Compile Include="Providers\DashContainerFormatProvider.generatedCore.cs" />
+    <Compile Include="Providers\DashInitSegmentProvider.cs" />
+    <Compile Include="Providers\DashInitSegmentProvider.generatedCore.cs" />
+    <Compile Include="Providers\DashMediaProvider.cs" />
+    <Compile Include="Providers\DashMediaProvider.generatedCore.cs" />
+    <Compile Include="Providers\DashMediaSegmentProvider.cs" />
+    <Compile Include="Providers\DashMediaSegmentProvider.generatedCore.cs" />
+    <Compile Include="Providers\DashTypeProvider.cs" />
+    <Compile Include="Providers\DashTypeProvider.generatedCore.cs" />
+    <Compile Include="Providers\EncoderProvider.cs" />
+    <Compile Include="Providers\EncoderProvider.generatedCore.cs" />
+    <Compile Include="Providers\EncoderTypeProvider.cs" />
+    <Compile Include="Providers\EncoderTypeProvider.generatedCore.cs" />
+    <Compile Include="Providers\LanguageProvider.cs" />
+    <Compile Include="Providers\LanguageProvider.generatedCore.cs" />
+    <Compile Include="Providers\LIBx264EncoderConfigProvider.cs" />
+    <Compile Include="Providers\LIBx264EncoderConfigProvider.generatedCore.cs" />
+    <Compile Include="Providers\LIBx264EncoderPresetTypeProvider.cs" />
+    <Compile Include="Providers\LIBx264EncoderPresetTypeProvider.generatedCore.cs" />
+    <Compile Include="Providers\MediaOriginTypeProvider.cs" />
+    <Compile Include="Providers\MediaOriginTypeProvider.generatedCore.cs" />
+    <Compile Include="Providers\MediaProvider.cs" />
+    <Compile Include="Providers\MediaProvider.generatedCore.cs" />
+    <Compile Include="Providers\RawMediaProvider.cs" />
+    <Compile Include="Providers\RawMediaProvider.generatedCore.cs" />
+    <Compile Include="Providers\RawSegmentProvider.cs" />
+    <Compile Include="Providers\RawSegmentProvider.generatedCore.cs" />
+    <Compile Include="Providers\RawSegmentStreamProvider.cs" />
+    <Compile Include="Providers\RawSegmentStreamProvider.generatedCore.cs" />
+    <Compile Include="Providers\SegmenterConfigProvider.cs" />
+    <Compile Include="Providers\SegmenterConfigProvider.generatedCore.cs" />
+    <Compile Include="Providers\StreamProvider.cs" />
+    <Compile Include="Providers\StreamProvider.generatedCore.cs" />
+    <Compile Include="Providers\StreamTypeProvider.cs" />
+    <Compile Include="Providers\StreamTypeProvider.generatedCore.cs" />
+    <Compile Include="Providers\TranscoderConfigProvider.cs" />
+    <Compile Include="Providers\TranscoderConfigProvider.generatedCore.cs" />
+    <Compile Include="Providers\VideoSizeProvider.cs" />
+    <Compile Include="Providers\VideoSizeProvider.generatedCore.cs" />
+    <Compile Include="Providers\VideoStreamProvider.cs" />
+    <Compile Include="Providers\VideoStreamProvider.generatedCore.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DashProject.Data.Item\DashProject.Data.Item.csproj">
+      <Project>{687789AB-84F0-4289-BDB3-1B498646D1FD}</Project>
+      <Name>DashProject.Data.Item</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DashProject.Entity\DashProject.Entity.csproj">
+      <Project>{E6956B73-1418-406E-9AA3-093CD203922F}</Project>
+      <Name>DashProject.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Manitou.Data.Item.Base\Manitou.Data.Item.Base.csproj">
+      <Project>{059479AC-9F62-4C26-ABE8-D36B889E9837}</Project>
+      <Name>Manitou.Data.Item.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Manitou.Data.Provider\Manitou.Data.Provider.csproj">
+      <Project>{60DE2AAE-C796-4CF8-9578-AC1FCBAA14BA}</Project>
+      <Name>Manitou.Data.Provider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Manitou.Entity.Base\Manitou.Entity.Base.csproj">
+      <Project>{6AA36A66-C3C9-437A-8115-B0EE672E098D}</Project>
+      <Name>Manitou.Entity.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Cache Manitou list, for API classes. 0 arguments.</Title>
+            <Shortcut>Cache Manitou</Shortcut>
+            <Description>List caching snippet</Description>
+            <Author>GrafKrolik</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+                <SnippetType>SurroundsWith</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>ClassPrefix</ID>
+                    <Default></Default>
+                </Literal>
+                <Literal>
+                    <ID>ObjectName</ID>
+                    <Default></Default>
+                </Literal>
+                <Literal>
+                    <ID>ProcedureName</ID>
+                    <Default></Default>
+                </Literal>
+                <Literal>
+                  <ID>CacheDuration</ID>
+                  <Default></Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+<![CDATA[
+    #region $ObjectName$_$ProcedureName$
+    private const string $ObjectName$_$ProcedureName$_CacheKey = "$ClassPrefix$API.$ObjectName$_$ProcedureName$";
+
+    private static List<$ObjectName$> $ObjectName$_$ProcedureName$()
+    {
+        return Factory.$ObjectName$.$ProcedureName$();
+    }
+
+    public static List<$ObjectName$> $ObjectName$_$ProcedureName$(bool applyCaching)
+    {
+        if (!applyCaching)
+            return $ObjectName$_$ProcedureName$();
+
+		bool isExists;
+        List<$ObjectName$> list = CacheUtils.CacheGet<List<$ObjectName$>>($ObjectName$_$ProcedureName$_CacheKey, out isExists);
+        if (!isExists)
+        {
+            list = $ObjectName$_$ProcedureName$();
+            CacheUtils.CacheSet($ObjectName$_$ProcedureName$_CacheKey, list, $CacheDuration$);
+        }
+        return list;
+    }
+
+    public static void $ObjectName$_$ProcedureName$_RemoveCache()
+    {
+        CacheUtils.CacheRemove($ObjectName$_$ProcedureName$_CacheKey);
+    }
+    #endregion
+]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

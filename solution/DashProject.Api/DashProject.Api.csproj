@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{02B41731-6A74-4EAB-98DA-F81CE0E49906}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DashProject.Api</RootNamespace>
+    <AssemblyName>DashProject.Api</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Threading.Tasks.Dataflow, Version=4.5.24.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Tpl.Dataflow.4.5.24\lib\portable-net45+win8+wpa81\System.Threading.Tasks.Dataflow.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CoreApi.cs" />
+    <Compile Include="DashMediaApi.cs" />
+    <Compile Include="DashMediaSegmentApi.cs" />
+    <Compile Include="Data.cs" />
+    <Compile Include="Enum\CodecType.cs" />
+    <Compile Include="Enum\ContainerType.cs" />
+    <Compile Include="Enum\DashType.cs" />
+    <Compile Include="Enum\DataType.cs" />
+    <Compile Include="Enum\DecoderType.cs" />
+    <Compile Include="Enum\EncoderType.cs" />
+    <Compile Include="Enum\FactoryStatus.cs" />
+    <Compile Include="Enum\FFmpeg.cs" />
+    <Compile Include="Enum\LIBx264EncoderPresetType.cs" />
+    <Compile Include="Enum\StreamType.cs" />
+    <Compile Include="Enum\RawMediaSourceType.cs" />
+    <Compile Include="Enum\X264Profile.cs" />
+    <Compile Include="Extension\CodecTypeExtension.cs" />
+    <Compile Include="Extension\ContainerTypeExtension.cs" />
+    <Compile Include="Extension\FloatExtension.cs" />
+    <Compile Include="Extension\IntExtension.cs" />
+    <Compile Include="Extension\StreamTypeExtension.cs" />
+    <Compile Include="Extension\X264ProfileLevelExtension.cs" />
+    <Compile Include="FFmpegApi.cs" />
+    <Compile Include="FFmpegConfigApi.cs" />
+    <Compile Include="FFprobeApi.cs" />
+    <Compile Include="MediaApi.cs" />
+    <Compile Include="SegmenterApi.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StreamApi.cs" />
+    <Compile Include="TranscoderApi.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BMFF\MatrixIO.IO.Bmff\MatrixIO.IO.Bmff.csproj">
+      <Project>{4a565c90-1850-4a15-816d-e332981735ab}</Project>
+      <Name>MatrixIO.IO.Bmff</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BMFF\MatrixIO.IO\MatrixIO.IO.csproj">
+      <Project>{edc16014-eca3-4b93-a849-b81eac369dd2}</Project>
+      <Name>MatrixIO.IO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DashProject.Entity\DashProject.Entity.csproj">
+      <Project>{E6956B73-1418-406E-9AA3-093CD203922F}</Project>
+      <Name>DashProject.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DashProject.Repository\DashProject.Repository.csproj">
+      <Project>{F7A5AD90-12D4-48CC-BAFA-FED6880BBC39}</Project>
+      <Name>DashProject.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\Manitou.Data.Item.Base\Manitou.Data.Item.Base.csproj">
+      <Project>{059479AC-9F62-4C26-ABE8-D36B889E9837}</Project>
+      <Name>Manitou.Data.Item.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\Manitou.Data.Provider\Manitou.Data.Provider.csproj">
+      <Project>{60DE2AAE-C796-4CF8-9578-AC1FCBAA14BA}</Project>
+      <Name>Manitou.Data.Provider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\Manitou.Entity.Base\Manitou.Entity.Base.csproj">
+      <Project>{6AA36A66-C3C9-437A-8115-B0EE672E098D}</Project>
+      <Name>Manitou.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\Manitou.Helper\Manitou.Helper.csproj">
+      <Project>{35273c6b-2911-4999-8134-76adfeab0351}</Project>
+      <Name>Manitou.Helper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

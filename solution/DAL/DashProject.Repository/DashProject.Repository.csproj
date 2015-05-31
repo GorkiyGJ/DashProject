@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F7A5AD90-12D4-48CC-BAFA-FED6880BBC39}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DashProject.Repository</RootNamespace>
+    <AssemblyName>DashProject.Repository</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AACTranscoderConfigFactory.cs" />
+    <Compile Include="AACTranscoderConfigFactoryBase.generatedCore.cs" />
+    <Compile Include="ApplicationConfigurationFactory.cs" />
+    <Compile Include="ApplicationConfigurationFactoryBase.generatedCore.cs" />
+    <Compile Include="AspectRatioFactory.cs" />
+    <Compile Include="AspectRatioFactoryBase.generatedCore.cs" />
+    <Compile Include="BroadcastTypeFactory.cs" />
+    <Compile Include="BroadcastTypeFactoryBase.generatedCore.cs" />
+    <Compile Include="CodecMediaTypeFactory.cs" />
+    <Compile Include="CodecMediaTypeFactoryBase.generatedCore.cs" />
+    <Compile Include="CodecToEncoderFactory.cs" />
+    <Compile Include="CodecToEncoderFactoryBase.generatedCore.cs" />
+    <Compile Include="CodecTypeFactory.cs" />
+    <Compile Include="CodecTypeFactoryBase.generatedCore.cs" />
+    <Compile Include="ContainerTypeFactory.cs" />
+    <Compile Include="ContainerTypeFactoryBase.generatedCore.cs" />
+    <Compile Include="Custom\iDashMediaInfoFactory.cs" />
+    <Compile Include="Custom\iDashMediaInfoFactoryBase.generatedCore.cs" />
+    <Compile Include="Custom\iLIBx264EncoderConfigFactory.cs" />
+    <Compile Include="Custom\iLIBx264EncoderConfigFactoryBase.generatedCore.cs" />
+    <Compile Include="Custom\iMediaInfoFactory.cs" />
+    <Compile Include="Custom\iMediaInfoFactoryBase.generatedCore.cs" />
+    <Compile Include="Custom\iScaleVideoFilterFactory.cs" />
+    <Compile Include="Custom\iScaleVideoFilterFactoryBase.generatedCore.cs" />
+    <Compile Include="Custom\iSegmenterConfigFactory.cs" />
+    <Compile Include="Custom\iSegmenterConfigFactoryBase.generatedCore.cs" />
+    <Compile Include="Custom\iStreamInfoFactory.cs" />
+    <Compile Include="Custom\iStreamInfoFactoryBase.generatedCore.cs" />
+    <Compile Include="Custom\iTranscoderConfigFactory.cs" />
+    <Compile Include="Custom\iTranscoderConfigFactoryBase.generatedCore.cs" />
+    <Compile Include="DashInitSegmentFactory.cs" />
+    <Compile Include="DashInitSegmentFactoryBase.generatedCore.cs" />
+    <Compile Include="DashMediaFactory.cs" />
+    <Compile Include="DashMediaFactoryBase.generatedCore.cs" />
+    <Compile Include="DashMediaSegmentFactory.cs" />
+    <Compile Include="DashMediaSegmentFactoryBase.generatedCore.cs" />
+    <Compile Include="DashTypeFactory.cs" />
+    <Compile Include="DashTypeFactoryBase.generatedCore.cs" />
+    <Compile Include="DecoderTypeFactory.cs" />
+    <Compile Include="DecoderTypeFactoryBase.generatedCore.cs" />
+    <Compile Include="EncoderTypeFactory.cs" />
+    <Compile Include="EncoderTypeFactoryBase.generatedCore.cs" />
+    <Compile Include="Factory.cs" />
+    <Compile Include="LanguageFactory.cs" />
+    <Compile Include="LanguageFactoryBase.generatedCore.cs" />
+    <Compile Include="LIBx264EncoderConfigFactory.cs" />
+    <Compile Include="LIBx264EncoderConfigFactoryBase.generatedCore.cs" />
+    <Compile Include="LIBx264EncoderPresetTypeFactory.cs" />
+    <Compile Include="LIBx264EncoderPresetTypeFactoryBase.generatedCore.cs" />
+    <Compile Include="ManitouFactory.cs" />
+    <Compile Include="MediaFactory.cs" />
+    <Compile Include="MediaFactoryBase.generatedCore.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RawMediaFactory.cs" />
+    <Compile Include="RawMediaFactoryBase.generatedCore.cs" />
+    <Compile Include="RawMediaSourceTypeFactory.cs" />
+    <Compile Include="RawMediaSourceTypeFactoryBase.generatedCore.cs" />
+    <Compile Include="RawSegmentStreamFactory.cs" />
+    <Compile Include="RawSegmentStreamFactoryBase.generatedCore.cs" />
+    <Compile Include="ScaleVideoFilterFactory.cs" />
+    <Compile Include="ScaleVideoFilterFactoryBase.generatedCore.cs" />
+    <Compile Include="SegmenterConfigFactory.cs" />
+    <Compile Include="SegmenterConfigFactoryBase.generatedCore.cs" />
+    <Compile Include="StreamFactory.cs" />
+    <Compile Include="StreamFactoryBase.generatedCore.cs" />
+    <Compile Include="StreamTypeFactory.cs" />
+    <Compile Include="StreamTypeFactoryBase.generatedCore.cs" />
+    <Compile Include="VideoSizeFactory.cs" />
+    <Compile Include="VideoSizeFactoryBase.generatedCore.cs" />
+    <Compile Include="X264ProfileFactory.cs" />
+    <Compile Include="X264ProfileFactoryBase.generatedCore.cs" />
+    <Compile Include="X264ProfileLevelFactory.cs" />
+    <Compile Include="X264ProfileLevelFactoryBase.generatedCore.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DashProject.Data.Item\DashProject.Data.Item.csproj">
+      <Project>{687789AB-84F0-4289-BDB3-1B498646D1FD}</Project>
+      <Name>DashProject.Data.Item</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DashProject.Data\DashProject.Data.csproj">
+      <Project>{862299EF-C4B1-492D-9193-8C08B669239F}</Project>
+      <Name>DashProject.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DashProject.Entity\DashProject.Entity.csproj">
+      <Project>{E6956B73-1418-406E-9AA3-093CD203922F}</Project>
+      <Name>DashProject.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Manitou.Data.Item.Base\Manitou.Data.Item.Base.csproj">
+      <Project>{059479AC-9F62-4C26-ABE8-D36B889E9837}</Project>
+      <Name>Manitou.Data.Item.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Manitou.Data.Provider\Manitou.Data.Provider.csproj">
+      <Project>{60DE2AAE-C796-4CF8-9578-AC1FCBAA14BA}</Project>
+      <Name>Manitou.Data.Provider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Manitou.Entity.Base\Manitou.Entity.Base.csproj">
+      <Project>{6AA36A66-C3C9-437A-8115-B0EE672E098D}</Project>
+      <Name>Manitou.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Manitou.Helper\Manitou.Helper.csproj">
+      <Project>{35273C6B-2911-4999-8134-76ADFEAB0351}</Project>
+      <Name>Manitou.Helper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

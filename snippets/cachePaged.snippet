@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Cache Manitou paged object, for API classes.</Title>
+            <Shortcut>Cache Manitou</Shortcut>
+            <Description>Object caching snippet</Description>
+            <Author>GrafKrolik</Author>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+                <SnippetType>SurroundsWith</SnippetType>
+            </SnippetTypes>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>ClassPrefix</ID>
+                    <Default></Default>
+                </Literal>
+                <Literal>
+                    <ID>ObjectName</ID>
+                    <Default></Default>
+                </Literal>
+                <Literal>
+                    <ID>CacheDuration</ID>
+                    <Default></Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+<![CDATA[
+    #region $ObjectName$_GetPaged
+    private const string $ObjectName$_GetPaged_CacheFormat = "$ClassPrefix$API.$ObjectName$_GetPaged.{0}.{1}.{2}.{3}";
+
+    public static List<$ObjectName$> $ObjectName$_GetPaged(string whereClause, string orderBy, int pageIndex, int pageSize, out int count)
+    {
+        return Factory.$ObjectName$.GetPaged(whereClause, orderBy, pageIndex, pageSize, out count);
+    }
+
+    public static List<$ObjectName$> $ObjectName$_GetPaged(string whereClause, string orderBy, int pageIndex, int pageSize, out int count, bool applyCaching)
+    {
+        if (!applyCaching)
+            return $ObjectName$_GetPaged(whereClause, orderBy, pageIndex, pageSize, out count);
+
+        string cacheKey = string.Format($ObjectName$_GetPaged_CacheFormat, whereClause, orderBy, pageIndex, pageSize);
+        CachedDataPage cp = CacheUtils.CacheGet<CachedDataPage>(cacheKey);
+        if (cp == null)
+        {
+            List<$ObjectName$> obj = $ObjectName$_GetPaged(whereClause, orderBy, pageIndex, pageSize, out count);
+            cp = new CachedDataPage(obj, count);
+            CacheUtils.CacheSet(cacheKey, obj, $CacheDuration$);
+        }
+        count = cp.TotalCount;
+        return cp.PageData as List<$ObjectName$>;
+    }
+
+    public static void $ObjectName$_GetPaged_RemoveCache(string whereClause, string orderBy, int pageIndex, int pageSize)
+    {
+        CacheUtils.CacheRemove(string.Format($ObjectName$_GetPaged_CacheFormat, whereClause, orderBy, pageIndex, pageSize));
+    }
+    #endregion
+]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

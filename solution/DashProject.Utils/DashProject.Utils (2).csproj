@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{18B491A6-B01B-4F45-A969-03082ADF1CDE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DashProject.Utils</RootNamespace>
+    <AssemblyName>DashProject.Utils</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>libs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BmffUtils.cs" />
+    <Compile Include="Converter.cs" />
+    <Compile Include="Core\Core.cs" />
+    <Compile Include="DashMediaUtils.cs" />
+    <Compile Include="Extension\CodecExtension.cs" />
+    <Compile Include="Extension\ContainerFormatExtension.cs" />
+    <Compile Include="Extension\FloatExtension.cs" />
+    <Compile Include="Extension\IntExtension.cs" />
+    <Compile Include="FFmpegUtils.cs" />
+    <Compile Include="FragmenterUtils.cs" />
+    <Compile Include="ManifestUtils.cs" />
+    <Compile Include="MediaFileUtils.cs" />
+    <Compile Include="MediaUtils.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SegmenterUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BMFF\MatrixIO.IO.Bmff\MatrixIO.IO.Bmff.csproj">
+      <Project>{4A565C90-1850-4A15-816D-E332981735AB}</Project>
+      <Name>MatrixIO.IO.Bmff</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DashProject.Entity\DashProject.Entity.csproj">
+      <Project>{E6956B73-1418-406E-9AA3-093CD203922F}</Project>
+      <Name>DashProject.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DashProject.Repository\DashProject.Repository.csproj">
+      <Project>{F7A5AD90-12D4-48CC-BAFA-FED6880BBC39}</Project>
+      <Name>DashProject.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\Manitou.Data.Item.Base\Manitou.Data.Item.Base.csproj">
+      <Project>{059479AC-9F62-4C26-ABE8-D36B889E9837}</Project>
+      <Name>Manitou.Data.Item.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\Manitou.Data.Provider\Manitou.Data.Provider.csproj">
+      <Project>{60DE2AAE-C796-4CF8-9578-AC1FCBAA14BA}</Project>
+      <Name>Manitou.Data.Provider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\Manitou.Entity.Base\Manitou.Entity.Base.csproj">
+      <Project>{6AA36A66-C3C9-437A-8115-B0EE672E098D}</Project>
+      <Name>Manitou.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DashProject.Api\DashProject.Api.csproj">
+      <Project>{02b41731-6a74-4eab-98da-f81ce0e49906}</Project>
+      <Name>DashProject.Api</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

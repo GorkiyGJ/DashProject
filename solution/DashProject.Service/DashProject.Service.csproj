@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{993D8567-9563-46D6-8DCB-CC93746F6F27}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DashProject.Service</RootNamespace>
+    <AssemblyName>DashProject.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.1.2\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Diagnostics">
+      <HintPath>..\packages\Microsoft.Owin.Diagnostics.2.0.2\lib\net40\Microsoft.Owin.Diagnostics.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.HttpListener">
+      <HintPath>..\packages\Microsoft.Owin.Host.HttpListener.2.0.2\lib\net45\Microsoft.Owin.Host.HttpListener.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Hosting">
+      <HintPath>..\packages\Microsoft.Owin.Hosting.2.0.2\lib\net45\Microsoft.Owin.Hosting.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.0.2\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Threading.Tasks.Dataflow, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Tpl.Dataflow.4.5.24\lib\portable-net45+win8+wpa81\System.Threading.Tasks.Dataflow.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Factory\DashFactory\DashFactory_mp4.cs" />
+    <Compile Include="Factory\Transcoders\Transcoder_file_in_mpegts_x264_piped_out_fmp4_x264.cs" />
+    <Compile Include="Factory\Transcoders\Transcoder_file_in_mpegts_h262_piped_out_fmp4_x264.cs" />
+    <Compile Include="Factory\DashFactory\DashFactory.cs" />
+    <Compile Include="Factory\FactoryBase.cs" />
+    <Compile Include="Factory\MediaFactory\UdpMpegTs_MediaFactory.cs" />
+    <Compile Include="Factory\MediaFactory\MediaFactory.cs" />
+    <Compile Include="Factory\Production.cs" />
+    <Compile Include="Factory\SegmenterProcess.cs" />
+    <Compile Include="ServiceInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Service.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SignalRService\Hubs\ProductionHub.cs" />
+    <Compile Include="SignalRService\Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BMFF\MatrixIO.IO.Bmff\MatrixIO.IO.Bmff.csproj">
+      <Project>{4a565c90-1850-4a15-816d-e332981735ab}</Project>
+      <Name>MatrixIO.IO.Bmff</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BMFF\MatrixIO.IO\MatrixIO.IO.csproj">
+      <Project>{edc16014-eca3-4b93-a849-b81eac369dd2}</Project>
+      <Name>MatrixIO.IO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DashProject.Data.Item\DashProject.Data.Item.csproj">
+      <Project>{687789ab-84f0-4289-bdb3-1b498646d1fd}</Project>
+      <Name>DashProject.Data.Item</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DashProject.Data.MsSql\DashProject.Data.MsSql.csproj">
+      <Project>{58180b15-56b4-4448-8a4a-3cf7e20753a5}</Project>
+      <Name>DashProject.Data.MsSql</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DashProject.Data\DashProject.Data.csproj">
+      <Project>{862299ef-c4b1-492d-9193-8c08b669239f}</Project>
+      <Name>DashProject.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DashProject.Entity\DashProject.Entity.csproj">
+      <Project>{e6956b73-1418-406e-9aa3-093cd203922f}</Project>
+      <Name>DashProject.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\Manitou.Data.Item.Base\Manitou.Data.Item.Base.csproj">
+      <Project>{059479ac-9f62-4c26-abe8-d36b889e9837}</Project>
+      <Name>Manitou.Data.Item.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\Manitou.Data.Provider\Manitou.Data.Provider.csproj">
+      <Project>{60de2aae-c796-4cf8-9578-ac1fcbaa14ba}</Project>
+      <Name>Manitou.Data.Provider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\Manitou.Entity.Base\Manitou.Entity.Base.csproj">
+      <Project>{6aa36a66-c3c9-437a-8115-b0ee672e098d}</Project>
+      <Name>Manitou.Entity.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DashProject.Api\DashProject.Api.csproj">
+      <Project>{02b41731-6a74-4eab-98da-f81ce0e49906}</Project>
+      <Name>DashProject.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DashProject.Utils\DashProject.Utils.csproj">
+      <Project>{18b491a6-b01b-4f45-a969-03082adf1cde}</Project>
+      <Name>DashProject.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
