@@ -8,6 +8,7 @@
 *.sln.docstates
 old/
 manitou/
+solution/DAL/
 
 
 # User-specific files (MonoDevelop/Xamarin Studio)
