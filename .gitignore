@@ -9,8 +9,6 @@
 old/
 manitou/
 solution/DAL/
-database/
-
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

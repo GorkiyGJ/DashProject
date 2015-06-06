@@ -17,7 +17,6 @@ namespace DashProject.Service.Factory
     public abstract class MediaFactory : FactoryBase, IEnumerable
     {
         public int MediaId;
-        //public int RawMediaId;
         public int? ProgramIndex;
         protected FactoryCollection<DashFactory> DashFactories;
         public BroadcastBlock<DashProject.Api.Data> InputDataBuffer;
