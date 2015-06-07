@@ -12,7 +12,7 @@ using MatrixIO.IO.Bmff.Boxes;
 using MatrixIO.IO;
 using System.Linq;
 
-namespace DashProject.Service.Factory.Dash
+namespace DashProject.Service.Factory.DashFactories
 {
     public abstract class DashFactory : FactoryBase
     {

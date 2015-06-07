@@ -31,14 +31,14 @@ namespace DashProject.Api
 
 
         #region LIBx264EncoderConfig_Get_By_dashMedidiaId
-        public static FFmpegConfigApi.LIBx264EncoderConfig LIBx264EncoderConfig_Get_By_DashMedidiaId(int dashMediaId)
+        public static iLIBx264EncoderConfig LIBx264EncoderConfig_Get_By_DashMedidiaId(int dashMediaId)
         {
             iLIBx264EncoderConfig item = iLIBx264EncoderConfig_Get_By_DashMediaId(dashMediaId);
             if (item == null)
                 return null;
-            return LIBx264EncoderConfig_Get_By_iLIBx264EncoderConfig(item);
+            return item;
         }
-
+        /*
         private static FFmpegConfigApi.LIBx264EncoderConfig LIBx264EncoderConfig_Get_By_iLIBx264EncoderConfig(iLIBx264EncoderConfig item)
         {
             FFmpegConfigApi.LIBx264EncoderConfig encoderConfig =  new FFmpegConfigApi.LIBx264EncoderConfig()
@@ -57,6 +57,7 @@ namespace DashProject.Api
             return encoderConfig;
         }
         #endregion
+        */
 
         #region iScaleVideoFilter_Get_By_DashMediaId
         public static iScaleVideoFilter iScaleVideoFilter_Get_By_DashMediaId(int dashMediaId)
@@ -67,14 +68,14 @@ namespace DashProject.Api
         #endregion
 
         #region  ScaleVideoFilter_Get_By_DashMediaId
-        public static FFmpegConfigApi.ScaleVideoFilter ScaleVideoFilter_Get_By_DashMediaId(int dashMediaId)
+        public static iScaleVideoFilter ScaleVideoFilter_Get_By_DashMediaId(int dashMediaId)
         {
             iScaleVideoFilter item = iScaleVideoFilter_Get_By_DashMediaId(dashMediaId);
             if(item == null)
                 return null;
-            return ScaleVideoFilter_Get_By_iScaleVideoFilter(item);
+            return item
         }
-
+        /*
         private static FFmpegConfigApi.ScaleVideoFilter ScaleVideoFilter_Get_By_iScaleVideoFilter(iScaleVideoFilter item)
         {
             return new FFmpegConfigApi.ScaleVideoFilter()
@@ -82,7 +83,7 @@ namespace DashProject.Api
                 Width = item.Width.Value,
                 Height = item.Height.Value
             };
-        }
+        }*/
         #endregion
 
 

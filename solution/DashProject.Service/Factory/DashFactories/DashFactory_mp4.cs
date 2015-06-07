@@ -13,7 +13,7 @@ using MatrixIO.IO.Bmff.Boxes;
 using MatrixIO.IO.Bmff;
 using MatrixIO.IO;
 
-namespace DashProject.Service.Factory.Dash
+namespace DashProject.Service.Factory.DashFactories
 {
     public abstract class DashFactory_mp4 : DashFactory
     {

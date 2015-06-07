@@ -2,16 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace DashProject.Api.Enum
 {
-    public enum FFmpegProcessStatus
-    {
-        Stopped = 0,//default
-        Running = 1,
-        RunningWithWarnings = 2
-    }
-
     public enum FFmpegLogLevel
     {
         quiet,
@@ -22,12 +16,5 @@ namespace DashProject.Api.Enum
         info,
         verbose,
         debug
-    }
-
-    public enum FFmpegProcessExitCode
-    {
-        Success = 0,
-        Error = 1//,
-        //StoppedByService = 2
     }
 }

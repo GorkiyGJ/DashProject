@@ -54,7 +54,6 @@
     <Compile Include="CoreApi.cs" />
     <Compile Include="DashMediaApi.cs" />
     <Compile Include="DashMediaSegmentApi.cs" />
-    <Compile Include="Data.cs" />
     <Compile Include="Enum\CodecType.cs" />
     <Compile Include="Enum\ContainerType.cs" />
     <Compile Include="Enum\DashType.cs" />
@@ -62,7 +61,9 @@
     <Compile Include="Enum\DecoderType.cs" />
     <Compile Include="Enum\EncoderType.cs" />
     <Compile Include="Enum\FactoryStatus.cs" />
-    <Compile Include="Enum\FFmpeg.cs" />
+    <Compile Include="Enum\FFmpegLogLevel.cs" />
+    <Compile Include="Enum\FFmpegProcessExitCode.cs" />
+    <Compile Include="Enum\FFmpegProcessStatus.cs" />
     <Compile Include="Enum\LIBx264EncoderPresetType.cs" />
     <Compile Include="Enum\StreamType.cs" />
     <Compile Include="Enum\RawMediaSourceType.cs" />
@@ -73,8 +74,6 @@
     <Compile Include="Extension\IntExtension.cs" />
     <Compile Include="Extension\StreamTypeExtension.cs" />
     <Compile Include="Extension\X264ProfileLevelExtension.cs" />
-    <Compile Include="FFmpegApi.cs" />
-    <Compile Include="FFmpegConfigApi.cs" />
     <Compile Include="FFprobeApi.cs" />
     <Compile Include="MediaApi.cs" />
     <Compile Include="SegmenterApi.cs" />

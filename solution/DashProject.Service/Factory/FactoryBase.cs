@@ -41,16 +41,14 @@ namespace DashProject.Service.Factory
                 StatusChanged(value);
                 if (this.status == value)
                     return;
-                //string logMsg = "Factory " + this.ToString() + " status changed => " + value.ToString();
-                //LogEvent(this, logMsg, EventLogEntryType.Information);
                 status = value;
             }
         }
 
         private FactoryStatus status = FactoryStatus.Stopped;
 
-        public delegate void LogEventHandler(/*FactoryBase sender, */string message, EventLogEntryType logLevel);
-        public LogEventHandler LogEvent = delegate { };
+        private delegate void LogEventHandler(/*FactoryBase sender, */string message, EventLogEntryType logLevel);
+        protected LogEventHandler LogEvent = delegate { };
 
         public delegate void StatusChangedHandler(/*FactoryBase sender, */FactoryStatus status);
         public event StatusChangedHandler StatusChanged = delegate { };
@@ -63,7 +61,6 @@ namespace DashProject.Service.Factory
         {
             
             this.StatusChanged += this.OnStatusChanged;
-            //this.Status = FactoryStatus.Stopped;
             this.LogEvent += this.OnLog;
         }
         protected abstract void OnStatusChanged(/*FactoryBase sender, */FactoryStatus status);

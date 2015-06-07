@@ -76,15 +76,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Factory\DashFactory\DashFactory_mp4.cs" />
-    <Compile Include="Factory\Transcoders\Transcoder_file_in_mpegts_x264_piped_out_fmp4_x264.cs" />
-    <Compile Include="Factory\Transcoders\Transcoder_file_in_mpegts_h262_piped_out_fmp4_x264.cs" />
-    <Compile Include="Factory\DashFactory\DashFactory.cs" />
+    <Compile Include="Factory\AVprocessors\FFmpeg\FFmpegConfigs\EncoderConfig.cs" />
+    <Compile Include="Factory\AVprocessors\FFmpeg\FFmpegConfigs\IFFmpegConfig.cs" />
+    <Compile Include="Factory\AVprocessors\FFmpeg\FFmpegConfigs\LIBx264EncoderConfig.cs" />
+    <Compile Include="Factory\AVprocessors\FFmpeg\FFmpegConfigs\Mp4FragmentationConfig.cs" />
+    <Compile Include="Factory\AVprocessors\FFmpeg\FFmpegConfigs\ScaleVideoFilter.cs" />
+    <Compile Include="Factory\AVprocessors\FFmpeg\FFmpegProcess.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Factory\AVprocessors\FFmpeg\FFmpegProcessPiped.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Factory\AVprocessors\FFmpeg\FFmpegSetting.cs" />
+    <Compile Include="Factory\AVprocessors\Segmenter\Segmenter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Factory\AVprocessors\Segmenter\SegmenterConfig.cs" />
+    <Compile Include="Factory\DashFactories\DashFactory_mp4.cs" />
+    <Compile Include="Factory\DataEntities\BytesData_TimeStamp.cs" />
+    <Compile Include="Factory\DataEntities\FileData.cs" />
+    <Compile Include="Factory\DataEntities\FileDataTimeStamps.cs" />
+    <Compile Include="Factory\DataEntities\IData.cs" />
+    <Compile Include="Factory\MediaFactories\MediaFactoryBase.cs" />
+    <Compile Include="Factory\AVprocessors\Transcoders\Transcoder_file_in_mpegts_x264_piped_out_fmp4_x264.cs" />
+    <Compile Include="Factory\AVprocessors\Transcoders\Transcoder_file_in_mpegts_h262_piped_out_fmp4_x264.cs" />
+    <Compile Include="Factory\DashFactories\DashFactory.cs" />
     <Compile Include="Factory\FactoryBase.cs" />
-    <Compile Include="Factory\MediaFactory\UdpMpegTs_MediaFactory.cs" />
-    <Compile Include="Factory\MediaFactory\MediaFactory.cs" />
+    <Compile Include="Factory\MediaFactories\MediaFactory.cs" />
     <Compile Include="Factory\Production.cs" />
-    <Compile Include="Factory\SegmenterProcess.cs" />
     <Compile Include="ServiceInstaller.cs">
       <SubType>Component</SubType>
     </Compile>
