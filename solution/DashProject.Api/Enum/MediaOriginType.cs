@@ -5,8 +5,9 @@ using System.Text;
 
 namespace DashProject.Api.Enum
 {
-    public enum RawMediaSourceType : byte
+    public enum MediaOriginType : byte
     {
-        udp_mpegts = 1
+        file = 1,
+        udp_mpegts = 2
     }
 }

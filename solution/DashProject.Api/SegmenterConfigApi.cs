@@ -11,17 +11,18 @@ using DashProject.Api.Extension;
 
 namespace DashProject.Api
 {
-    public static class SegmenterApi
+    public static class SegmenterConfigApi
     {
 
-        #region iSegmenterConfig_Get_By_MediaId
-        public static iSegmenterConfig iSegmenterConfig_Get_By_MediaId(int mediaId)
+        #region SegmenterConfig_Get_By_MediaId
+        public static iSegmenterConfig SegmenterConfig_Get_By_MediaId(int mediaId)
         {
             List<iSegmenterConfig> config = Factory.iSegmenterConfig.Get_By_MediaId(mediaId);
             return config != null ? config[0] : null;
         }
         #endregion 
 
+        /*
         #region iStreamInfo_Get_By_MediaId_StreamIndex
         public static iStreamInfo iStreamInfo_Get_By_MediaId_StreamIndex(int mediaId, int index)
         {
@@ -37,6 +38,6 @@ namespace DashProject.Api
         }
         #endregion
 
-        
+        */
     }
 }

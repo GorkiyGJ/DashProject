@@ -26,10 +26,10 @@ namespace DashProject.Service.Factory.MediaFactories
         public MediaFactory(int mediaId, int? programIndex = null)
               :base(mediaId, programIndex)
         {
-            iSegmenterConfig segmenterConfig = SegmenterApi.iSegmenterConfig_Get_By_MediaId(mediaId);
+            iSegmenterConfig segmenterConfig = SegmenterConfigApi.iSegmenterConfig_Get_By_MediaId(mediaId);
             if (segmenterConfig == null)
             {
-                this.OnLog("", EventLogEntryType.Error);
+                this.OnLog("segmenterConfig == null", EventLogEntryType.Error);
                 return;
             }
             
