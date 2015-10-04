@@ -90,6 +90,14 @@
       <Project>{edc16014-eca3-4b93-a849-b81eac369dd2}</Project>
       <Name>MatrixIO.IO</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DAL\DashProject.Entity\DashProject.Entity.csproj">
+      <Project>{16f8f6ee-b405-48e0-a542-a5f76e11d324}</Project>
+      <Name>DashProject.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DashProject.Repository\DashProject.Repository.csproj">
+      <Project>{b2cb87cf-67fa-4615-adfb-805342d4b71e}</Project>
+      <Name>DashProject.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

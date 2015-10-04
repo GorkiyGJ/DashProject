@@ -73,7 +73,7 @@ namespace DashProject.Service.Factory
                         return;
 
                     dashFactory.StatusChanged += status => { if (status != FactoryStatus.Running) this.Status = FactoryStatus.RunningWithWarnings; };
-                    InputDataBuffer.LinkTo(dashFactory.InputDataBuffer);
+                    mediaFactory.InputDataBuffer.LinkTo(dashFactory.InputDataBuffer);
 
                     DashFactories.Add(dashMediaId, dashFactory);
                 }

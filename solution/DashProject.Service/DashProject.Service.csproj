@@ -141,7 +141,7 @@
       <Name>DashProject.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\DAL\DashProject.Entity\DashProject.Entity.csproj">
-      <Project>{e6956b73-1418-406e-9aa3-093cd203922f}</Project>
+      <Project>{16f8f6ee-b405-48e0-a542-a5f76e11d324}</Project>
       <Name>DashProject.Entity</Name>
     </ProjectReference>
     <ProjectReference Include="..\DAL\Manitou.Data.Item.Base\Manitou.Data.Item.Base.csproj">
