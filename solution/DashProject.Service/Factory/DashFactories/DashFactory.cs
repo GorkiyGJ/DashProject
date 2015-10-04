@@ -16,7 +16,7 @@ namespace DashProject.Service.Factory.DashFactories
 {
     public abstract class DashFactory : FactoryBase
     {
-        public static bool IsHasInitSegment(int dashMediaId) { return System.IO.File.Exists(CoreApi.Get_Dash_InitSegment_FilePath(dashMediaId)); }
+        public static bool IsHasInitSegment(int dashMediaId) { return System.IO.File.Exists(CoreApi.Get_DashInitSegment_FilePath(dashMediaId)); }
         public ActionBlock<DashProject.Api.Data> InputDataBuffer;
 
         protected abstract Transcoder<BytesData_TimeStamp> Transcoder { get; }

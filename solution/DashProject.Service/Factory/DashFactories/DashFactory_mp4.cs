@@ -58,12 +58,12 @@ namespace DashProject.Service.Factory.DashFactories
                 initBaseMedia.Children.Insert(0, ftypBox);
                 initBaseMedia.Children.Insert(1, moovBox);
 
-                using (FileStream fs = new FileStream(CoreApi.Get_Dash_InitSegment_FilePath(DashMediaId), FileMode.Create))
+                using (FileStream fs = new FileStream(CoreApi.Get_DashInitSegment_FilePath(DashMediaId), FileMode.Create))
                 {
                     try
                     {
                         initBaseMedia.SaveTo(fs);
-                        DashMediaApi.DashMedia_Save_InitSegment(DashMediaId, new Entity.DashInitSegment() { FileName = CoreApi.AppConf.InitMediaFileName, DateTimeCreated = DateTime.Now, ContainerFormatId = (int)ContainerFormat.mp4 });
+                        DashMediaApi.DashMedia_Save_InitSegment(DashMediaId, new Entity.DashInitSegment() { FileName = CoreApi.ApplicationConfiguration.DashInitSegmentFileName, DateTimeCreated = DateTime.Now, ContainerFormatId = (int)ContainerFormat.mp4 });
                     }
                     catch (Exception ex) { LogEvent(ex.Message, System.Diagnostics.EventLogEntryType.Error); }
                 }

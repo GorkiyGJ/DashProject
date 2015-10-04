@@ -1,15 +1,13 @@
-﻿using System;
+﻿using System.Diagnostics;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
-using DashProject.Entity;
-using DashProject.Repository;
 using Microsoft.Win32;
 using System.Configuration;
-using DashProject.Entity.Custom;
 using DashProject.Api.Extension;
+using System;
 
 
 namespace DashProject.Api
@@ -18,7 +16,7 @@ namespace DashProject.Api
     {
         public static class AppEventLog
         {
-            public static readonly string sLog = CoreApi.AppConf.ProjectName;
+            public static readonly string sLog = CoreApi.ApplicationConfiguration.ApplicationName;
 
             public static void WriteEntry(string message, string eventSource, EventLogEntryType type)
             {
@@ -28,39 +26,34 @@ namespace DashProject.Api
             }
         }
 
-        public static class AppConf
+        public static class ApplicationConfiguration
         {
-            private static ApplicationConfiguration _applicationConfiguration
+            private static Factory.Entity.ApplicationConfiguration _applicationConfiguration
             {
                 get
                 {
-                    ApplicationConfiguration appConf;
-                    List<ApplicationConfiguration> appConfList = Factory.ApplicationConfiguration.GetList();
-                    if (appConfList == null)
-                    {
-                        appConf = new ApplicationConfiguration();
-                        appConf.ProjectName = "DashProject";
-                        appConf.StorageRootDirectoryPath = Directory.GetDirectoryRoot(Directory.GetCurrentDirectory()) + appConf.ProjectName;
-                        appConf.ManifestFileName = "manifest.mpd";
-                        appConf.InitMediaFileName = "init";
-                        appConf.MediaContentFolderName = "MediaContent";
-                        //appConf.MediaProductionFolderName = "production";
-                        //appConf.MediaFragmentsFolderName = "fragments";
-                        appConf.DashMediaFolderName = "dash";
-                        appConf.MediaRawSegmentsFolderName = "raw_segments";
-                        appConf.MediaRawFolderName = "raw";
-                        appConf.ServiceName = "Service";
-                        //appConf.SegmenterServiceName = "Segmenter";
-                        //appConf.FragmenterServiceName = "Fragmenter";
-                        /////// appConf.ServiceName = "service";
-                        /////////appConf.DefaultDomain = "localhost";
+                    Factory.Entity.ApplicationConfiguration applicationConfiguration;
 
-                        Factory.ApplicationConfiguration.Save(appConf);
-                    }
-                    else
-                        appConf = appConfList[0];
+                    List<Factory.Entity.ApplicationConfiguration> appConfList = Factory.ApplicationConfiguration.GetList();
+                    
+                    if (appConfList != null)
+                        applicationConfiguration = appConfList[0];
+                    return applicationConfiguration;
 
-                    return appConf;
+                    applicationConfiguration = new Factory.Entity.ApplicationConfiguration();
+                    applicationConfiguration.ApplicationName = "DashProject";
+                    applicationConfiguration.StorageRootDirectoryPath = Directory.GetDirectoryRoot(Directory.GetCurrentDirectory()) + applicationConfiguration.ApplicationName;
+                    applicationConfiguration.DashManifestFileName = "manifest";
+                    applicationConfiguration.DashInitSegmentFileName = "init";
+                    applicationConfiguration.MediaContentFolderName = "MediaContent";
+                    applicationConfiguration.DashMediaFolderName = "dash";
+                    applicationConfiguration.RawMediaSegmentsFolderName = "raw_segments";
+                    applicationConfiguration.RawMediaFolderName = "raw";
+                    applicationConfiguration.ServiceName = "Service";
+
+                    Factory.ApplicationConfiguration.Save(applicationConfiguration);
+
+                    return applicationConfiguration;
                 }
                 set
                 {
@@ -68,24 +61,11 @@ namespace DashProject.Api
                 }
             }
 
-            /*public static string DefaultDomain
+            public static string ServiceDomainName
             {
                 get
                 {
-                    return _applicationConfiguration.SegmenterServiceName;
-                }
-                set
-                {
-                    _applicationConfiguration.DefaultDomain = value;
-                    _applicationConfiguration = _applicationConfiguration;
-                }
-            }*/
-
-            public static string ServiceDomain
-            {
-                get
-                {
-                    return _applicationConfiguration.ServiceName.ToLower() + "." + _applicationConfiguration.DefaultDomain;
+                    return _applicationConfiguration.ServiceName.ToLower();
                 }
             }
 
@@ -93,7 +73,7 @@ namespace DashProject.Api
             {
                 get
                 {
-                    return "http://" + ServiceDomain;
+                    return "http://" + ServiceDomainName;
                 }
             }
 
@@ -114,108 +94,45 @@ namespace DashProject.Api
             {
                 get
                 {
-                    return ProjectName + "." + ServiceName;
+                    return ApplicationName + "." + ServiceName;
                 }
             }
 
-            /*public static string SegmenterServiceName
+            public static string ApplicationName
             {
                 get
                 {
-                    return _applicationConfiguration.SegmenterServiceName;
+                    return _applicationConfiguration.ApplicationName;
                 }
                 set
                 {
-                    _applicationConfiguration.SegmenterServiceName = value;
+                    _applicationConfiguration.ApplicationName = value;
                     _applicationConfiguration = _applicationConfiguration;
                 }
             }
 
-            public static string SegmenterServiceFullName
+            public static string DashManifestFileName
             {
                 get
                 {
-                    return ProjectName + "." + SegmenterServiceName;
-                }
-            }
-
-            public static string FragmenterServiceName
-            {
-                get
-                {
-                    return _applicationConfiguration.FragmenterServiceName;
+                    return _applicationConfiguration.DashManifestFileName;
                 }
                 set
                 {
-                    _applicationConfiguration.FragmenterServiceName = value;
+                    _applicationConfiguration.DashManifestFileName = value;
                     _applicationConfiguration = _applicationConfiguration;
                 }
             }
 
-            public static string FragmenterServiceFullName
+            public static string DashInitSegmentFileName
             {
                 get
                 {
-                    return ProjectName + "." + FragmenterServiceName;
-                }
-            }*/
-
-            /* public static string SegmentFileWatcherServiceName
-             {
-                 get
-                 {
-                     return _applicationConfiguration.SegmentFileWatcherServiceName;
-                 }
-                 set
-                 {
-                     _applicationConfiguration.SegmentFileWatcherServiceName = value;
-                     _applicationConfiguration = _applicationConfiguration;
-                 }
-             }
-
-             public static string SegmentFileWatcherServiceFullName
-             {
-                 get
-                 {
-                     return ProjectName + "." + SegmentFileWatcherServiceName;
-                 }
-             }*/
-
-            public static string ProjectName
-            {
-                get
-                {
-                    return _applicationConfiguration.ProjectName;
+                    return _applicationConfiguration.DashInitSegmentFileName;
                 }
                 set
                 {
-                    _applicationConfiguration.ProjectName = value;
-                    _applicationConfiguration = _applicationConfiguration;
-                }
-            }
-
-            public static string ManifestFileName
-            {
-                get
-                {
-                    return _applicationConfiguration.ManifestFileName;
-                }
-                set
-                {
-                    _applicationConfiguration.ManifestFileName = value;
-                    _applicationConfiguration = _applicationConfiguration;
-                }
-            }
-
-            public static string InitMediaFileName
-            {
-                get
-                {
-                    return _applicationConfiguration.InitMediaFileName;
-                }
-                set
-                {
-                    _applicationConfiguration.InitMediaFileName = value;
+                    _applicationConfiguration.DashInitSegmentFileName = value;
                     _applicationConfiguration = _applicationConfiguration;
                 }
             }
@@ -233,54 +150,28 @@ namespace DashProject.Api
                 }
             }
 
-            /*public static string MediaProductionFolderName
+            public static string RawMediaSegmentsFolderName
             {
                 get
                 {
-                    return _applicationConfiguration.MediaProductionFolderName;
+                    return _applicationConfiguration.RawMediaSegmentsFolderName;
                 }
                 set
                 {
-                    _applicationConfiguration.MediaProductionFolderName = value;
-                    _applicationConfiguration = _applicationConfiguration;
-                }
-            }*/
-
-            /*public static string MediaFragmentsFolderName
-            {
-                get
-                {
-                    return _applicationConfiguration.MediaFragmentsFolderName;
-                }
-                set
-                {
-                    _applicationConfiguration.MediaFragmentsFolderName = value;
-                    _applicationConfiguration = _applicationConfiguration;
-                }
-            }*/
-
-            public static string MediaRawSegmentsFolderName
-            {
-                get
-                {
-                    return _applicationConfiguration.MediaRawSegmentsFolderName;
-                }
-                set
-                {
-                    _applicationConfiguration.MediaRawSegmentsFolderName = value;
+                    _applicationConfiguration.RawMediaSegmentsFolderName = value;
                     _applicationConfiguration = _applicationConfiguration;
                 }
             }
 
-            public static string MediaRawFolderName
+            public static string RawMediaFolderName
             {
                 get
                 {
-                    return _applicationConfiguration.MediaRawFolderName;
+                    return _applicationConfiguration.RawMediaFolderName;
                 }
                 set
                 {
-                    _applicationConfiguration.MediaRawFolderName = value;
+                    _applicationConfiguration.RawMediaFolderName = value;
                     _applicationConfiguration = _applicationConfiguration;
                 }
             }
@@ -319,11 +210,19 @@ namespace DashProject.Api
 
         private static readonly string AppUtilsDirectoryName = ConfigurationManager.AppSettings["UtilsDirectoryName"];
 
+        public static string AppUtilsDirectoryPath 
+        {
+            get 
+            {
+                return AppDomain.CurrentDomain.BaseDirectory + AppUtilsDirectoryName;
+            }
+        }
+
         public static string FFprobeFilePath
         {
             get
             {
-                return AppDomain.CurrentDomain.BaseDirectory + AppUtilsDirectoryName + @"\" + "ffprobe.exe";
+                return AppUtilsDirectoryPath + @"\" + "ffprobe.exe";
             }
         }
 
@@ -331,7 +230,7 @@ namespace DashProject.Api
         {
             get
             {
-                return AppDomain.CurrentDomain.BaseDirectory + AppUtilsDirectoryName + @"\" + "ffmpeg.exe";
+                return AppUtilsDirectoryPath + @"\" + "ffmpeg.exe";
             }
         }
 
@@ -339,69 +238,14 @@ namespace DashProject.Api
         {
             get
             {
-                string pathTmpl = AppConf.StorageRootDirectoryPath + @"\{0}";
-                string path = string.Format(pathTmpl, AppConf.MediaContentFolderName);
+                string pathTmpl = ApplicationConfiguration.StorageRootDirectoryPath + @"\{0}";
+                string path = string.Format(pathTmpl, ApplicationConfiguration.MediaContentFolderName);
                 if (!Directory.Exists(path))
                 {
                     Directory.CreateDirectory(path);
                 }
                 return path;
             }
-        }
-
-        /*public static string GetProductionDirectoryPath(int mediaId, MediaUtils.MediaType mediaType)
-        {
-            string pathTmpl = MediaContentDirectoryPath + @"\{0}\{1}\{2}";
-            string path = string.Format(pathTmpl, MediaProductionFolderName, mediaId.ToString(), mediaType.ToString());
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
-            return path;
-        }
-
-        public static string GetProductionDirectoryPath(int mediaId)
-        {
-            string pathTmpl = MediaContentDirectoryPath + @"\{0}\{1}";
-            string path = string.Format(pathTmpl, MediaProductionFolderName, mediaId.ToString());
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
-            return path;
-        }*/
-
-        /*public static string GetFragmentsDirectoryPath(int dashMediaId)
-        {
-            string pathTmpl = MediaContentDirectoryPath + @"\{0}\{1}";
-            string path = string.Format(pathTmpl, MediaFragmentsFolderName, dashMediaId.ToString());
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
-            return path;
-        }*/
-
-        public static string Get_RawSegments_DirectoryPath(int mediaId)
-        {
-            string pathTmpl = MediaContentDirectoryPath + @"\{0}\{1}";
-            string path = string.Format(pathTmpl, mediaId.ToString(), AppConf.MediaRawSegmentsFolderName);
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
-            return path;
-        }
-
-        public static string Get_Raw_DirectoryPath(int mediaId)
-        {
-            string pathTmpl = MediaContentDirectoryPath + @"\{0}\{1}";
-            string path = string.Format(pathTmpl, mediaId.ToString(), AppConf.MediaRawFolderName);
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
-            return path;
         }
 
         public static string Get_Media_DirectoryPath(int mediaId)
@@ -415,10 +259,10 @@ namespace DashProject.Api
             return path;
         }
 
-        public static string Get_DashMedia_DirectoryPath(int mediaId, int dashMediaId)
+        public static string Get_RawMedia_DirectoryPath(int mediaId)
         {
-            string pathTmpl = Get_Media_DirectoryPath(mediaId) + @"\{0}\{1}";
-            string path = string.Format(pathTmpl, AppConf.DashMediaFolderName, dashMediaId.ToString());
+            string pathTmpl = Get_Media_DirectoryPath(mediaId) + @"\{0}";
+            string path = string.Format(pathTmpl, ApplicationConfiguration.RawMediaFolderName);
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
@@ -426,54 +270,54 @@ namespace DashProject.Api
             return path;
         }
 
-        public static string Get_Dash_InitSegment_FilePath(int dashMediaId)
+        public static string Get_RawMediaSegments_DirectoryPath(int mediaId)
         {
-            int? mediaId = null;
-            Factory.DashMedia.Get_MediaId_ById(dashMediaId, ref mediaId);
-
-            return Get_Dash_InitSegment_FilePath(mediaId.Value, dashMediaId);
+            string pathTmpl = Get_Media_DirectoryPath(mediaId) + @"\{0}";
+            string path = string.Format(pathTmpl, ApplicationConfiguration.RawMediaSegmentsFolderName);
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            return path;
         }
 
-        public static string Get_Dash_InitSegment_FilePath(int mediaId, int dashMediaId)
+
+        public static string Get_DashMedia_DirectoryPath(int dashMediaId, int? mediaId = null)
         {
-            string pathTmpl = Get_DashMedia_DirectoryPath(mediaId, dashMediaId) + @"\{0}";
-            return string.Format(pathTmpl, AppConf.InitMediaFileName);
+            if(mediaId.HasValue == false)
+               Factory.DashMedia.Get_MediaId_ById(dashMediaId, ref mediaId);
+
+            string pathTmpl = Get_Media_DirectoryPath(mediaId.Value) + @"\{0}\{1}";
+            string path = string.Format(pathTmpl, ApplicationConfiguration.DashMediaFolderName, dashMediaId.ToString());
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            return path;
+        }
+
+        public static string Get_DashInitSegment_FilePath(int dashMediaId, int? mediaId = null)
+        {
+            string pathTmpl = Get_DashMedia_DirectoryPath(dashMediaId, mediaId) + @"\{0}";
+            return string.Format(pathTmpl, ApplicationConfiguration.DashInitSegmentFileName);
         }
 
         public static string Get_DashSegment_FilePath(int dashMediaId, int dashMediaSegmentId)
         {
-            iDashMediaInfo dashMediaInfo = DashMediaApi.iDashMediaInfo_Get_By_DashMediaId(dashMediaId);
-            if (dashMediaInfo == null)
+            DashSegment dashSegment = Factory.DashSegment_GetBy_DashMediaId_DashMediaSegmentId(dashMediaId, dashMediaSegmentId);
+            string fileName = dashSegment.fileName;
+            
+            if(String.IsNullOrEmpty(fileName))
                 return string.Empty;
 
-            string pathTmpl = Get_DashMedia_DirectoryPath(dashMediaInfo.MediaId, dashMediaId) + @"\{0}";
-            return string.Format(pathTmpl, dashMediaSegmentId.ToString() + "." + ((Api.Enum.ContainerType)dashMediaInfo.DashContainerTypeId).GetFileExtension());
-
+            string pathTmpl = Get_DashMedia_DirectoryPath(dashMediaId) + @"\{0}";
+            return string.Format(pathTmpl, fileName);
         }
 
-        public static string Get_Manifest_FilePath(int mediaId)
+        public static string Get_DashManifest_FilePath(int mediaId)
         {
             string pathTmpl = Get_Media_DirectoryPath(mediaId) + @"\{0}";
-            return string.Format(pathTmpl, AppConf.ManifestFileName);
-        }
-
-        public static class RegUtils
-        {
-            public static RegistryKey AppUserRootRegistry
-            {
-                get
-                {
-                    RegistryKey key;
-                    using (RegistryKey HKEY_CURRENT_USER = Registry.CurrentUser)
-                    {
-                        using (RegistryKey HKEY_CURRENT_USER_SOFTWARE = HKEY_CURRENT_USER.CreateSubKey("Software"))
-                        {
-                            key = HKEY_CURRENT_USER_SOFTWARE.CreateSubKey(AppConf.ProjectName);
-                        }
-                    }
-                    return key;
-                }
-            }
+            return string.Format(pathTmpl, ApplicationConfiguration.DashManifestFileName);
         }
     }
 }

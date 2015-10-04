@@ -36,7 +36,7 @@ namespace DashProject.Service.Factory.MediaFactories
             FFmpegSetting ffmpegSetting = new FFmpegSetting()
             {
                 InputMedia = segmenterConfig.InputMedia,
-                OutputMedia = CoreApi.Get_RawSegments_DirectoryPath(mediaId) + @"\%d." + ((ContainerType)segmenterConfig.RawMediaContainerTypeId.Value).GetFileExtension(),
+                OutputMedia = CoreApi.Get_RawMediaSegments_DirectoryPath(mediaId) + @"\%d." + ((ContainerType)segmenterConfig.RawMediaContainerTypeId.Value).GetFileExtension(),
                 InputContainer = (ContainerType)segmenterConfig.RawMediaContainerTypeId.Value,
                 OutputContainer = ContainerType.stream_segment,
                 ProgramIndex = segmenterConfig.ProgramIndex,

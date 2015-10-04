@@ -34,14 +34,14 @@ namespace DashProject.Service.Factory
                 MediaFactory mediaFactory = null;
 
                 if (mediaOriginType == MediaOriginType.udp_mpegts)
-                    mediaFactory = new UdpMpegTs_MediaFactory(mediaId);
+                    mediaFactory = new MediaFactory(mediaId); //UdpMpegTs_MediaFactory(mediaId)
                 else if (mediaOriginType == MediaOriginType.file)
                     mediaFactory = new MediaFactory(mediaId);
 
                 if (mediaFactory == null)
-                    return
+                    continue;
 
-                MediaFactories.Add(mediaInfo.MediaId.Value, mediaFactory);
+                MediaFactories.Add(mediaInfo.MediaId, mediaFactory);
 
                 List<iDashMediaInfo> dashMediaInfoList = Api.DashMediaApi.iDashMediaInfo_Get_By_MediaId(mediaId);
                 if (dashMediaInfoList == null || dashMediaInfoList.Count == 0)

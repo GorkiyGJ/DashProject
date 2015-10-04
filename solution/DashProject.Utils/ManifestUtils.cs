@@ -11,7 +11,7 @@ namespace DashProject.Utils
     {
         /*public static string GetManifestFilePath(int dashMediaId)
         {
-            return Core.AppConf.GetFragmentsDirectoryPath(dashMediaId) + @"\" + Core.AppConf.ManifestFileName;
+            return Core.ApplicationConfiguration.GetFragmentsDirectoryPath(dashMediaId) + @"\" + Core.ApplicationConfiguration.ManifestFileName;
         }*/
     }
 }

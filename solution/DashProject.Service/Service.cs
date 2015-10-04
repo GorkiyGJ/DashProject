@@ -17,7 +17,7 @@ namespace DashProject.Service
 
         public Service()
         {
-            this.ServiceName = CoreApi.AppConf.ServiceFullName;
+            this.ServiceName = CoreApi.ApplicationConfiguration.ServiceFullName;
         }
 
         protected override void OnStart(string[] args)
@@ -34,7 +34,7 @@ namespace DashProject.Service
 
         private void InitializeSignalRService()
         {
-            this.signalRService = WebApp.Start<Startup>(CoreApi.AppConf.ServiceDomainUrl);
+            this.signalRService = WebApp.Start<Startup>(CoreApi.ApplicationConfiguration.ServiceDomainUrl);
         }
 
         protected override void OnStop()

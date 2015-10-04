@@ -57,7 +57,7 @@ public class controller : IHttpHandler {
         
         if (type == RequestType.init)
         {
-            string initSegmentFilePath = CoreApi.Get_Dash_InitSegment_FilePath(mediaId, dashmId);
+            string initSegmentFilePath = CoreApi.Get_DashInitSegment_FilePath(mediaId, dashmId);
             if (!File.Exists(initSegmentFilePath))
             {
                 context.Response.StatusCode = (int)HttpStatusCode.NotFound;
